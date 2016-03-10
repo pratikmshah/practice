@@ -60,7 +60,22 @@ describe StockTrend do
     end
   end
 
+  pending '#format_text' do
+    it '' do
+    end
+  end
+
   pending '#insert_headers' do
+    it '' do
+    end
+  end
+
+  pending '#format_results' do
+    it '' do
+    end
+  end
+
+  pending '#display' do
     it '' do
     end
   end

@@ -8,15 +8,15 @@ class StockTrend
   HEADERS = ['Gainers', 'Losers', 'Leaders', 'Change', 'Volume','Mkt Cap']
   HEAD_ALTR = ["GainersChange", "LosersChange", "LeadersVolume",]
 
-  attr_reader :url, :trend_id, :data, :html
+  attr_reader :url, :trend_id, :result
 
   def initialize
     @result = {
-      price_win: [],
-      price_loss: [],
-      mktcap_win = []
-      mktcap_loss = []
-      volume = []
+      price_win: Array.new,
+      price_loss: Array.new,
+      mktcap_win: Array.new,
+      mktcap_loss: Array.new,
+      volume: Array.new
     }
     @url = URL
     @trend_id = TREND_ID
@@ -30,8 +30,8 @@ class StockTrend
     data = format_text(data)
     data = insert_headers(data)
     data = remove_new_lines(data)
-    data = format_result(data)
-    # display(data)
+    format_results(data)
+    display
   end
 
   # retrieve html
@@ -87,7 +87,35 @@ class StockTrend
 
 
   def format_results(data)
+    counter = 0
 
+    loop do
+      line = data.shift(4)
+
+      if line.include?('T-Sym')
+        counter += 1
+      end
+
+      if counter == 1
+        self.result[:price_win] << line
+      elsif counter == 2
+        self.result[:price_loss] << line
+      elsif counter == 3
+        self.result[:mktcap_win] << line
+      elsif counter == 4
+        self.result[:mktcap_loss] << line
+      else
+        self.result[:volume] << line
+      end
+
+      break if data.empty?
+    end
+  end
+
+  def display
+    self.result.each do |k, v|
+      puts v.to_table(:first_row_is_head => true)
+    end
   end
 
   private ####################
@@ -104,7 +132,7 @@ class StockTrend
 
     def adjust_headers(data, header_name)
       loop do
-        index = data.index { |element| element.include?("GainersChange") }
+        index = data.index { |element| element.include?(header_name) }
 
         break if index == nil
 
