@@ -49,4 +49,19 @@ describe StockTrend do
     it '' do
     end
   end
+
+  pending '#exclude_stocks_text' do
+    it '' do
+    end
+  end
+
+  pending '#adjust_headers' do
+    it '' do
+    end
+  end
+
+  pending '#insert_headers' do
+    it '' do
+    end
+  end
 end
