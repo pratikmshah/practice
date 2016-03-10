@@ -44,4 +44,9 @@ describe StockTrend do
       expect(arr.empty?).to be false
     end
   end
+
+  pending '#format_text' do
+    it '' do
+    end
+  end
 end
