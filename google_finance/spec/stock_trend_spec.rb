@@ -6,6 +6,8 @@ describe StockTrend do
   let(:html) { s.html }
   let(:data) { html.css(s.trend_id) }
   let(:txt_data) { s.convert_obj_to_text(data) }
+  let(:data_f) { s.format_text(txt_data) }
+  let(:data_with_head) { s.insert_headers(s.remove_new_lines(data_f)) }
 
   xdescribe 'variables' do
     # check google finance url
@@ -47,7 +49,7 @@ describe StockTrend do
     end
   end
 
-  describe '#format_text' do
+  xdescribe '#format_text' do
     it 'formats data by including headers and remove unecessary text' do
       header = [ 'Gainers', 'Losers', 'Leaders']
       arr = s.format_text(txt_data)
@@ -58,13 +60,17 @@ describe StockTrend do
     end
   end
 
-  pending '#remove_new_lines' do
-    it '' do
+  xdescribe '#remove_new_lines' do
+    it 'should not have any new line escape characters' do
+      arr = s.remove_new_lines(txt_data)
+      expect(arr.include?('\n')).to be(false)
     end
   end
 
-  pending '#insert_headers' do
-    it '' do
+  describe '#insert_headers' do
+    it 'should have formated headers starting with T-Sym ending with Mkt Cap' do
+      header = data_with_head.slice(0..3)
+      expect(header).to eq( ['T-Sym', 'Gainers', 'Change', 'Mkt Cap'] )
     end
   end
 
@@ -73,8 +79,4 @@ describe StockTrend do
     end
   end
 
-  pending '#display' do
-    it '' do
-    end
-  end
 end
