@@ -19,10 +19,11 @@ describe StockTrend do
       expect(s.trend_id).to eq(id)
     end
 
-    # check data array to be empty
-    # it 'should have an empty array for data' do
-    #   expect(s.data.length).to be(0)
-    # end
+    # result hash is empty
+    it 'needs to have 5 keys' do
+      key = s.result.has_key?(:volume)
+      expect(key).to be(true)
+    end
   end
 
   describe '#html' do
@@ -45,8 +46,10 @@ describe StockTrend do
     end
   end
 
-  pending '#format_text' do
-    it '' do
+  describe '#format_text' do
+
+
+    it 's' do
     end
   end
 
