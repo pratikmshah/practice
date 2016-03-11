@@ -5,6 +5,9 @@ describe StockTrend do
   let(:s) { StockTrend.new }
   let(:html) { s.html }
   let(:data) { html.css(s.trend_id) }
+  let(:txt_data) { s.convert_obj_to_text(data) }
+  let(:data_f) { s.format_text(txt_data) }
+  let(:data_with_head) { s.insert_headers(s.remove_new_lines(data_f)) }
 
   describe 'variables' do
     # check google finance url
@@ -19,10 +22,11 @@ describe StockTrend do
       expect(s.trend_id).to eq(id)
     end
 
-    # check data array to be empty
-    # it 'should have an empty array for data' do
-    #   expect(s.data.length).to be(0)
-    # end
+    # result hash is empty
+    it 'needs to have 5 keys' do
+      key = s.result.has_key?(:volume)
+      expect(key).to be(true)
+    end
   end
 
   describe '#html' do
@@ -45,38 +49,36 @@ describe StockTrend do
     end
   end
 
-  pending '#format_text' do
-    it '' do
+  describe '#format_text' do
+    it 'formats data by including headers and remove unecessary text' do
+      header = [ 'Gainers', 'Losers', 'Leaders']
+      arr = s.format_text(txt_data)
+
+      expect(arr.include?( "Popular searches" )).to be(false)
+      expect(arr.include?( "Excludes stocks" )).to be(false)
+      expect(arr.include?( header.sample )).to be(true)
     end
   end
 
-  pending '#exclude_stocks_text' do
-    it '' do
+  describe '#remove_new_lines' do
+    it 'should not have any new line escape characters' do
+      arr = s.remove_new_lines(txt_data)
+      expect(arr.include?('\n')).to be(false)
     end
   end
 
-  pending '#adjust_headers' do
-    it '' do
+  describe '#insert_headers' do
+    it 'should have formated headers starting with T-Sym ending with Mkt Cap' do
+      header = data_with_head.slice(0..3)
+      expect(header).to eq( ['T-Sym', 'Gainers', 'Change', 'Mkt Cap'] )
     end
   end
 
-  pending '#format_text' do
-    it '' do
+  describe '#format_results' do
+    it 'should push values inside empty arrays of result hash' do
+      s.format_results(data_with_head)
+      expect(s.result[:volume].length).to be > 0
     end
   end
 
-  pending '#insert_headers' do
-    it '' do
-    end
-  end
-
-  pending '#format_results' do
-    it '' do
-    end
-  end
-
-  pending '#display' do
-    it '' do
-    end
-  end
 end

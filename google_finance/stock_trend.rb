@@ -51,11 +51,7 @@ class StockTrend
 
   # delete unecessary text
   def format_text(data)
-    # replace popular searches
-    index = data.index { |element| element.include?("Popular searches") }
-    data.slice!(index..data.index(data.last))
-
-    # replace excludes stocks
+    remove_pop(data)
     exclude_stocks_text(data)
     data = adjust_headers(data, HEAD_ALTR[0])
     data = adjust_headers(data, HEAD_ALTR[1])
@@ -157,5 +153,10 @@ class StockTrend
         end
       end
       return data
+    end
+
+    def remove_pop(data)
+      index = data.index { |element| element.include?("Popular searches") }
+      data.slice!(index..data.index(data.last))
     end
 end
