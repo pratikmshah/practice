@@ -49,10 +49,12 @@ describe StockTrend do
 
   describe '#format_text' do
     it 'formats data by including headers and remove unecessary text' do
-      # setup
+      header = [ 'Gainers', 'Losers', 'Leaders']
       arr = s.format_text(txt_data)
 
-      expect(arr.include?("Popular searches")).to be(false)
+      expect(arr.include?( "Popular searches" )).to be(false)
+      expect(arr.include?( "Excludes stocks" )).to be(false)
+      expect(arr.include?( header.sample )).to be(true)
     end
   end
 
