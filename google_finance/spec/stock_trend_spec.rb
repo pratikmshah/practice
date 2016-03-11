@@ -67,15 +67,17 @@ describe StockTrend do
     end
   end
 
-  describe '#insert_headers' do
+  xdescribe '#insert_headers' do
     it 'should have formated headers starting with T-Sym ending with Mkt Cap' do
       header = data_with_head.slice(0..3)
       expect(header).to eq( ['T-Sym', 'Gainers', 'Change', 'Mkt Cap'] )
     end
   end
 
-  pending '#format_results' do
-    it '' do
+  describe '#format_results' do
+    it 'should push values inside empty arrays of result hash' do
+      s.format_results(data_with_head)
+      expect(s.result[:volume].length).to be > 0
     end
   end
 
