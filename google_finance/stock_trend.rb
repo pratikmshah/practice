@@ -53,9 +53,11 @@ class StockTrend
   def format_text(data)
     remove_pop(data)
     exclude_stocks_text(data)
-    data = adjust_headers(data, HEAD_ALTR[0])
-    data = adjust_headers(data, HEAD_ALTR[1])
-    data = adjust_headers(data, HEAD_ALTR[2])
+
+    HEAD_ALTR.each do |heading|
+      data = adjust_headers(data, heading)
+    end
+
     return data
   end
 
