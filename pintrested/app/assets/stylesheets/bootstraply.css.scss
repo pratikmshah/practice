@@ -1,0 +1,9 @@
+$navbar-default-bg: #000; // LESS variables start with $
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.center {
+  text-align: center;
+}
