@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :pins
   devise_for :users
-  root 'home#index' # reroute index page to controller home/index page
+  root 'pins#index' # reroute index page to controller home/index page
   get 'home/index'
   get 'home/about'
 
