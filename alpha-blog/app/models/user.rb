@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :articles
+
+  before_save { self.email = email.downcase } # save email as lowercase
 
   # validates username is present, username has to be unique no matter what case, length has to be min 3 chars
   validates :username, presence: true,

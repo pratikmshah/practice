@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   def create
     #render plain: params[:article].inspect  # display the paramaters to screen
     @article = Article.new(article_params)
+    @article.user = User.first
 
     # if article saves then go to show else go back to new
     if @article.save
