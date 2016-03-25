@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX }      # must be a valid regex
+
+  has_secure_password
 end
