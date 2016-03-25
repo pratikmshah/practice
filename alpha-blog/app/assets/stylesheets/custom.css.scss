@@ -12,9 +12,52 @@ $navbar-default-bg: #000;
   font-weight: bold;
 }
 
-.navbar { border-radius: 0px; }
-
 #logo:hover {
   color: red;
   text-decoration: none;
+}
+
+.navbar { border-radius: 0px; }
+
+.jumbotron {
+  background-image: asset-url('alpha.jpg');
+  background-size: cover;
+  height: 550px;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  text-algin: center;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.btn-xlarge {
+  font-size: 1.7em;
+  background-color: #000;
+}
+
+footer {
+  margin-top: 25px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
 }
