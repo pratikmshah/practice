@@ -1,0 +1,33 @@
+<h1 class="text-center">Log in</h1>
+
+<!-- tell form what controller is this form for and then what is the url path on post -->
+<%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+
+  <!-- email -->
+  <div class="form-group">
+    <div class="control-label col-xs-2">
+      <%= f.label :email %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.email_field :email, class: 'form-control', placeholder: "Enter email", autofocus: true %>
+    </div>
+  </div>
+
+  <!-- password -->
+  <div class="form-group">
+    <div class="control-label col-xs-2">
+      <%= f.label :password %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.password_field :password, class: 'form-control', autocomplete: 'off' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-10 col-sm-offset-2">
+      <!-- if user is new record show sign up else update -->
+      <%= f.submit "Log in", class: "btn btn-primary btn-md" %>
+    </div>
+  </div>
+
+<% end %>
