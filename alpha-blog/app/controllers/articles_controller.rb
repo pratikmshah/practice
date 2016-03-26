@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy] # before the 4 routes the set_article method is called
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     # load default number of items per page in will_paginate gem
@@ -17,7 +19,7 @@ class ArticlesController < ApplicationController
   def create
     #render plain: params[:article].inspect  # display the paramaters to screen
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
 
     # if article saves then go to show else go back to new
     if @article.save
@@ -61,4 +63,10 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :description)
     end
 
+    def require_same_user
+      if current_user != @article.user
+        flash[:danger] = "You can only edit or delete your own article"
+        redirect_to root_path
+      end
+    end
 end
