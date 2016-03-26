@@ -17,8 +17,8 @@
         </div>
       </div>
 
-      <!-- display only if user is logged in and the article belongs to that user -->
-      <% if logged_in? && current_user == article.user %>
+      <!-- display only if user is logged in and the article belongs to that user or if user is admin -->
+      <% if logged_in? && current_user == article.user || current_user.admin? %>
         <div class="article-actions">
           <%= link_to 'Edit this article', edit_article_path(article), class: "btn btn-xs btn-primary" %>
           <%= link_to 'Delete this article', article_path(article), method: :delete,
