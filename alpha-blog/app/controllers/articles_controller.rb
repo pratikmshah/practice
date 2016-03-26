@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy] # before the 4 routes the set_article method is called
 
   def index
-    @articles = Article.all
+    # load default number of items per page in will_paginate gem
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
   def new
