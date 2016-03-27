@@ -36,7 +36,7 @@ class UserStocksController < ApplicationController
         @user_stock = UserStock.new(user: current_user, stock: stock)
       else
         # use the gem to find the stock data
-        stock = Stock.new_form_lookup(params[:stock_ticker])
+        stock = Stock.new_from_lookup(params[:stock_ticker])
         if stock.save
           # if stock saves to the db then create new user_stock record
           @user_stock = UserStock.new(user: current_user, stock: stock)
@@ -79,7 +79,7 @@ class UserStocksController < ApplicationController
   def destroy
     @user_stock.destroy
     respond_to do |format|
-      format.html { redirect_to user_stocks_url, notice: 'User stock was successfully destroyed.' }
+      format.html { redirect_to my_portfolio_path, notice: 'User stock was successfully deleted.' }
       format.json { head :no_content }
     end
   end
