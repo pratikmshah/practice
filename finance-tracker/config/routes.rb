@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users # all routes for devise
+
+  # all routes for devise but we specify to devise to look at our custom registraiton controller first
+  devise_for :users, :controllers => { :registrations => "user/registrations" }
   resources :user_stocks, except: [:show, :edit, :update]
 
   root 'welcome#index'
