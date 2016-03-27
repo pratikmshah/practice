@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class ListCategoriesController < ApplicationController
   def index
     @categories = Category.paginate(page: params[:page], per_page: 5)
   end
