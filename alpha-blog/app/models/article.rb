@@ -1,5 +1,7 @@
 class Article < ActiveRecord::Base
   belongs_to :user
+  has_many :article_categories
+  has_many :categories, through: :article_categories
 
   # title, description and user_id for record is mandatory
   validates :title, presence: true,
