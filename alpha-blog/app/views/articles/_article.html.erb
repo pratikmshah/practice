@@ -17,6 +17,11 @@
         </div>
       </div>
 
+      <% if article.categories.any? %>
+        <p>Categories: <%= render article.categories %></p>
+      <% end %>
+
+
       <!-- display only if user is logged in and the article belongs to that user or if user is admin -->
       <% if logged_in? && current_user == article.user || current_user.admin? %>
         <div class="article-actions">

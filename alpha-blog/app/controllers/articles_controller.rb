@@ -59,8 +59,8 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      # top level is article and allow title and description
-      params.require(:article).permit(:title, :description)
+      # top level is article and allow title and description and an array of category ids from checkboxes
+      params.require(:article).permit(:title, :description, category_ids: [])
     end
 
     def require_same_user
