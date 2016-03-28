@@ -1,0 +1,45 @@
+<div id="stock-lookup">
+  <h3>Search for Stocks</h3>
+
+  <!-- we are letting rails know that we will be using ajax and giving it an id for later use -->
+  <%= form_tag search_stocks_path, remote: true, method: :get, id: 'stock-lookup-form' do %>
+    <div class="form-group row no-padding text-center col-md-12">
+      <div class="col-md-10">
+        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true,
+                                                          class: 'form-control search-box input-lg' %>
+      </div>
+      <div class="col-md-2">
+        <%= button_tag(type: :submit, class: "btn btn-lg btn-success") do %>
+          <i class="fa fa-search"></i> Look up a stock
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render 'common/spinner' %>
+
+  <!-- if data is found then display the data -->
+  <% if @stock %>
+    <div id="stock-lookup-results" class="well results-block">
+      <strong>Symbol:</strong> <%= @stock.ticker %>
+      <strong>Name:</strong> <%= @stock.name %>
+      <strong>Price:</strong> <%= @stock.price %>
+      <% if current_user.can_add_stock?(@stock.ticker) %>
+        <!-- handled by create action in users_stocks controllers -->
+        <%= link_to "Add to my Stocks", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id : ''), class: 'btn btn-success btn-sm', method: :post %>
+      <% else %>
+        <span class="label label-default">
+          Stock cannot be added becuase you already added
+          <% if !current_user.under_stock_limit? %>
+            10 stocks
+          <% end %>
+          <% if current_user.stock_already_added?(@stock.ticker) %>
+            this stock
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+  <div id="stock-lookup-errors"></div>
+
+</div>
