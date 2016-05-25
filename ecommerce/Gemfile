@@ -27,6 +27,8 @@ gem 'spree', '~> 3.1.0.rc1'
 gem 'spree_auth_devise', '~> 3.1.0.rc1'
 gem 'spree_gateway', '~> 3.1.0.rc1'
 
+# gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express', branch: '2-3-stable'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
