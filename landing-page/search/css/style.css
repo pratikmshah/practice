@@ -1,3 +1,4 @@
+/* Universal changes */
 body, td, a, p {
     font-family: arial, sans-serif;
 }
@@ -8,6 +9,7 @@ a {
   color: #000;
 }
 
+/* Navigation */
 nav#navigation {
   width: 100%;
 }
@@ -20,7 +22,7 @@ nav#navigation div {
 nav#navigation div div{
   display: inline-block;
   font-size: 13px;
-  margin: 15px 7.5px;
+  margin: 15px 7px;
   padding: 0px;
   text-align: center;
   vertical-align: middle;
@@ -32,7 +34,7 @@ nav#navigation div div{
 }
 
 .apps-menu {
-  width: 16px;
+  width: 15px;
   height: auto;
 }
 
@@ -44,7 +46,7 @@ nav#navigation div div{
   outline: none;
   background: -webkit-linear-gradient(top, #4387fd, #4683ea);
   background:         linear-gradient(top, #4387fd, #4683ea);
-  padding: 7px 12px;
+  padding: 6px 12px;
   text-decoration: none !important;
   opacity: 1 !important;
   cursor: default;
@@ -54,3 +56,30 @@ nav#navigation div div{
   background: -webkit-linear-gradient(top,#3c7ae4, #3f76d3);
   background:         linear-gradient(top,#3c7ae4, #3f76d3);
 }
+
+/* Logo/Name */
+
+#logo h1 {
+  text-align: center;
+  font-size: 5.5em;
+  margin-top: 12%;
+  margin-bottom: 10px;
+}
+
+.google-g {
+  color: #3cba54;
+}
+
+.google-y {
+  color: #f4c20d;
+}
+
+.google-r {
+  color: #db3236;
+}
+
+.google-b {
+  color: #4885ed;
+}
+
+/* Search box and submit */
