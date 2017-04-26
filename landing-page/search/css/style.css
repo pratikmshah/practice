@@ -1,0 +1,56 @@
+body, td, a, p {
+    font-family: arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: #000;
+}
+
+nav#navigation {
+  width: 100%;
+}
+
+nav#navigation div {
+  padding: 0px 30px;
+  text-align: right;
+}
+
+nav#navigation div div{
+  display: inline-block;
+  font-size: 13px;
+  margin: 15px 7.5px;
+  padding: 0px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.nav-hover:hover {
+  opacity: .85;
+  text-decoration: underline;
+}
+
+.apps-menu {
+  width: 16px;
+  height: auto;
+}
+
+.login {
+  border: 1px solid #4285f4;
+  border-radius: 3px;
+  font-weight: bold;
+  color: white !important;
+  outline: none;
+  background: -webkit-linear-gradient(top, #4387fd, #4683ea);
+  background:         linear-gradient(top, #4387fd, #4683ea);
+  padding: 7px 12px;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  cursor: default;
+}
+
+.login:active {
+  background: -webkit-linear-gradient(top,#3c7ae4, #3f76d3);
+  background:         linear-gradient(top,#3c7ae4, #3f76d3);
+}
