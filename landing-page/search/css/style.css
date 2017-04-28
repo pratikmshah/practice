@@ -123,8 +123,12 @@ section#search-box form {
   font-size: 13px;
   margin: 11px 4px;
   min-width: 54px;
-  padding: 8px 16px;
+  padding: 10px 15px;
   text-align: center;
+}
+
+#submit input[type="submit"]:last-child {
+  max-width: 145px;
 }
 
 #submit input[type="submit"]:hover {
