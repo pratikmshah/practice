@@ -2,6 +2,7 @@
 var playing = false;
 var score;
 var lives;
+var fruits = ['apple', 'banana', 'cherries', 'grapes', 'mango', 'orange', 'peach', 'pear', 'watermelon'];
 
 $(function() {
   // click on start/reset button
@@ -25,14 +26,35 @@ $(function() {
         $("#trials-left").show();
         lives = 3;
         addHearts();
+
+        // change button text
+        $("#startreset").html("Reset Game");
+
+        // generate and display fruit
+        startAction();
       }
   });
 });
 
+//****************************
+//***** HELPER FUNCTIONS *****
+//****************************
 
 // adds image of lives
 function addHearts() {
   for(var i = 0; i < lives; i++) {
-    $("#trials-left").append(" X ");
+    $("#trials-left").append('<img src="images/heart.png" alt="heart" class="life">');
   }
+}
+
+// get random fruit
+function startAction() {
+  $("#fruit1").show();
+  getFruit();
+
+}
+
+// returns a random images
+function getFruit() {
+  $("#fruit1").attr('src', 'images/' + fruits[Math.round(8 * Math.random())] +'.png');
 }
