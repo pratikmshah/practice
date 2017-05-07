@@ -3,6 +3,8 @@ var playing = false;
 var score;
 var lives;
 var fruits = ['apple', 'banana', 'cherries', 'grapes', 'mango', 'orange', 'peach', 'pear', 'watermelon'];
+var speed;
+var action;
 
 $(function() {
   // click on start/reset button
@@ -42,22 +44,50 @@ $(function() {
 
 // adds image of lives
 function addHearts() {
+  $("#trials-left").empty();
   for(var i = 0; i < lives; i++) {
     $("#trials-left").append('<img src="images/heart.png" alt="heart" class="life">');
   }
 }
 
-// get random fruit
+// generate a random fruit with a random position and speed
 function startAction() {
-  $("#fruit1").show();
-  getFruit();
-  $("#fruit1").css({
-    'left' : Math.round(Math.random() * 550),
-    'top' : -100
-  });
+  generateFruit();
+
+  // generate random speed
+  speed = 1 + Math.round(5 * Math.random());
+
+  // move fruit down by one step every 10ms
+  action = setInterval(function() {
+    $("#fruit1").css('top', $("#fruit1").position().top + speed);
+
+    // check to see if fruit is out of bounds and if there are lives left
+    if($("#fruit1").position().top > $("#fruits-container").height()) {
+      if(lives > 1) {
+        generateFruit();
+        lives--;
+        addHearts();
+      } else {
+
+      }
+    }
+  }, 10);
 }
 
 // returns a random images
 function getFruit() {
   $("#fruit1").attr('src', 'images/' + fruits[Math.round(8 * Math.random())] +'.png');
+}
+
+// display and get image and position of fruits
+function generateFruit() {
+  $("#fruit1").show();
+  getFruit();
+
+  // display on x-axis randomly
+  $("#fruit1").css({
+    'left' : Math.round(Math.random() * 550),
+    'top' : -100
+  });
+
 }
