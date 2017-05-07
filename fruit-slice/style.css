@@ -121,3 +121,14 @@ html {
   z-index: 2;
   display: none;
 }
+
+.life {
+  width: 16px;
+  height: 16px;
+  margin: 0 5px;
+}
+
+.fruit {
+  display: none;
+  position: absolute;
+}
