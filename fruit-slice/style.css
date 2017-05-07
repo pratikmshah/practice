@@ -35,3 +35,12 @@ html {
   padding: 11px;
   display: none;
 }
+
+#wrong {
+  position: absolute;
+  left: 250px;
+  background-color: #de401a;
+  color: white;
+  padding: 11px;
+  display: none;
+}
