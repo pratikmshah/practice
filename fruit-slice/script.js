@@ -24,6 +24,9 @@ $(function() {
         score = 0;
         $("#scorevalue").html(score);
 
+        // hide game over box
+        $("#game-over").hide();
+
         // display number of lives
         $("#trials-left").show();
         lives = 3;
@@ -54,9 +57,6 @@ function addHearts() {
 function startAction() {
   generateFruit();
 
-  // generate random speed
-  speed = 1 + Math.round(5 * Math.random());
-
   // move fruit down by one step every 10ms
   action = setInterval(function() {
     $("#fruit1").css('top', $("#fruit1").position().top + speed);
@@ -68,7 +68,7 @@ function startAction() {
         lives--;
         addHearts();
       } else {
-
+        gameOver();
       }
     }
   }, 10);
@@ -90,4 +90,21 @@ function generateFruit() {
     'top' : -100
   });
 
+  // generate random speed
+  speed = getSpeed();
+}
+
+// execute game over commands
+function gameOver() {
+  playing = false;
+  $("#startreset").html("Start Game");
+  $("#game-over").show();
+  $("#game-over").html('<p>Game Over!</p><p>Your score is ' + score + '</p>');
+  clearInterval(action);
+  $("#fruit1").hide();
+}
+
+// random speed
+function getSpeed() {
+  return 1 + Math.round(5 * Math.random());
 }
