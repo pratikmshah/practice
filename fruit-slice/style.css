@@ -26,3 +26,12 @@ html {
   -moz-box-shadow: 0px 4px 0px #9da853;
   -webkit-box-shadow: 0px 4px 0px #9da853;
 }
+
+#correct {
+  position: absolute;
+  left: 260px;
+  background-color: #42e252;
+  color: white;
+  padding: 11px;
+  display: none;
+}
