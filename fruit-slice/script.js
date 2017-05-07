@@ -1,4 +1,4 @@
-// declare variables
+// declare global variables
 var playing = false;
 var score;
 var lives;
@@ -12,12 +12,9 @@ $(function() {
 
       // are we playing?
       if(playing) {
-
         // reload page
         location.reload();
-
       } else {
-
         // we are playing so set variable to true
         // update score
         playing = true;
@@ -38,6 +35,14 @@ $(function() {
         // generate and display fruit
         startAction();
       }
+  });
+
+  // execute instructions when slicing a fruit
+  $("#fruit1").mouseover(function() {
+    updateScore();
+    playSound();
+    destroyFruit();
+    setTimeout(generateFruit, 500);
   });
 });
 
@@ -107,4 +112,20 @@ function gameOver() {
 // random speed
 function getSpeed() {
   return 1 + Math.round(5 * Math.random());
+}
+
+// increase score
+function updateScore() {
+  $("#scorevalue").html(++score);
+}
+
+// play slice sound
+function playSound() {
+  $("#slicesound")[0].play();
+}
+
+// destroy fruit
+function destroyFruit() {
+  speed = 0;
+  $("#fruit1").hide("explode", 500);
 }
