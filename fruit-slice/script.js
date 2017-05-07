@@ -51,7 +51,10 @@ function addHearts() {
 function startAction() {
   $("#fruit1").show();
   getFruit();
-
+  $("#fruit1").css({
+    'left' : Math.round(Math.random() * 550),
+    'top' : -100
+  });
 }
 
 // returns a random images
