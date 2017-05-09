@@ -38,10 +38,10 @@ img {
   position: absolute;
   z-index: 3;
   top: 7%;
-  -webkit-animation: spinning 20s linear infinite;
-  -moz-animation: spinning 20s linear infinite;
-  -o-animation: spinning 20s linear infinite;
-  animation: spinning 20s linear infinite;
+  -webkit-animation: spinning 20s linear infinite reverse;
+  -moz-animation: spinning 20s linear infinite reverse;
+  -o-animation: spinning 20s linear infinite reverse;
+  animation: spinning 20s linear infinite reverse;
 }
 
 /* animation to rotate */
