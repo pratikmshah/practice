@@ -1,0 +1,13 @@
+/* Add background to jumbotron */
+.jumbotron {
+  background: url(http://freenaturestock.s3.amazonaws.com/166.jpg) center center;
+  background-size: cover;
+  height: 600px;
+}
+
+/* logo size */
+.logo {
+  width: 75px;
+  height: 75px;
+  margin-left: 15px;
+}
