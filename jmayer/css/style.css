@@ -10,6 +10,9 @@ img {
 
 #content {
   position: relative;
+  background: white url(../imgs/background.jpg) no-repeat center center;
+  background-size: cover;
+  min-height: 1145px;
 }
 
 #wrapper {
@@ -21,6 +24,13 @@ img {
 .john {
   position: relative;
   z-index: 5;
+}
+
+.glance {
+  visibility: visible;
+  position: absolute;
+  bottom: 0;
+  z-index: 6;
 }
 
 .spin1 {
