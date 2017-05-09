@@ -9,5 +9,14 @@
 .logo {
   width: 75px;
   height: 75px;
-  margin-left: 15px;
+}
+
+/* set text color of featured class */
+.feature {
+  color: #fff;
+}
+
+/* create space between title and logo */
+.feature h1 {
+  padding-top: 60px;
 }
