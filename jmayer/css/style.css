@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#content {
+  position: relative;
+}
+
+#wrapper {
+  position: absolute;
+  left: 7%;
+  margin-top: 2.5%;
+}
+
+.john {
+  position: relative;
+  z-index: 5;
+}
+
+.spin1 {
+  position: absolute;
+  z-index: 3;
+  bottom: 26%;
+  left: 55%;
+}
+
+.spin2 {
+  position: absolute;
+  z-index: 3;
+  top: 7%;
+  animation: spinning 20s infinite;
+  animation-timing-function: linear;
+}
