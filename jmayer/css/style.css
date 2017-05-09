@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#content {
+  position: relative;
+  background: white url(../imgs/background.jpg) no-repeat center center;
+  background-size: cover;
+  min-height: 1145px;
+}
+
+#wrapper {
+  position: absolute;
+  left: 7%;
+  margin-top: 2%;
+}
+
+.john {
+  position: relative;
+  z-index: 5;
+}
+
+.glance {
+  visibility: visible;
+  position: absolute;
+  bottom: 0;
+  z-index: 6;
+}
+
+.spin1 {
+  position: absolute;
+  z-index: 3;
+  bottom: 26%;
+  left: 55%;
+  -webkit-animation: spinning 20s linear infinite;
+  -moz-animation: spinning 20s linear infinite;
+  -o-animation: spinning 20s linear infinite;
+  animation: spinning 20s linear infinite;
+}
+
+.spin2 {
+  position: absolute;
+  z-index: 3;
+  top: 7%;
+  -webkit-animation: spinning 20s linear infinite reverse;
+  -moz-animation: spinning 20s linear infinite reverse;
+  -o-animation: spinning 20s linear infinite reverse;
+  animation: spinning 20s linear infinite reverse;
+}
+
+/* animation to rotate */
+@-webkit-keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
