@@ -15,7 +15,7 @@ img {
 #wrapper {
   position: absolute;
   left: 7%;
-  margin-top: 2.5%;
+  margin-top: 2%;
 }
 
 .john {
@@ -28,12 +28,55 @@ img {
   z-index: 3;
   bottom: 26%;
   left: 55%;
+  -webkit-animation: spinning 20s linear infinite;
+  -moz-animation: spinning 20s linear infinite;
+  -o-animation: spinning 20s linear infinite;
+  animation: spinning 20s linear infinite;
 }
 
 .spin2 {
   position: absolute;
   z-index: 3;
   top: 7%;
-  animation: spinning 20s infinite;
-  animation-timing-function: linear;
+  -webkit-animation: spinning 20s linear infinite;
+  -moz-animation: spinning 20s linear infinite;
+  -o-animation: spinning 20s linear infinite;
+  animation: spinning 20s linear infinite;
+}
+
+/* animation to rotate */
+@-webkit-keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
