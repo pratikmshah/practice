@@ -1,0 +1,108 @@
+/*Style body by adding background image and set it to cover, add font-family*/
+* {
+  font-family: Arvo, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(http://freenaturestock.s3.amazonaws.com/232.jpg) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*Style brand and links*/
+.logo {
+  width: 37px;
+  height: auto;
+}
+
+#navigation ul li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 35px;
+  font-size: 17px;
+  border-bottom: 1px solid rgb(34, 34, 34);
+}
+
+#navigation ul li:hover {
+  border-bottom: 1px solid #00FFB8;
+}
+
+/*Style navigation background*/
+.navbar-inverse{
+    background: rgba(0,0,0,0.5);
+}
+
+
+/*Style jumbotron*/
+.jumbotron {
+  background-color: rgba(0,0,0,0);
+  color: white;
+}
+
+/*Style icons section using bootstrap grid system*/
+.icons {
+  background-color: rgba(0,0,0,0);
+  text-align: center;
+  color: white;
+}
+
+.icons img {
+  height: 100px;
+  width: 95px;
+}
+
+.icons p  {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+/*Style contact button*/
+#contact {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+#contact div a {
+  padding: 10px 70px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 255, 184, 0.5);
+  border: none;
+  font-size: 18px;
+  letter-spacing: 1.3;
+}
+
+#contact div a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+/*Style footer*/
+footer {
+  background: rgba(0,0,0,0.5);
+  padding: 10px 0 10px 0;
+  color: grey;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/*Use media queries to change icons size in small devices*/
+@media (max-width: 768px) {
+  .jumbotron {
+    margin: 0;
+    padding: 15px;
+  }
+
+  .icons img {
+    height: 70px;
+    width: auto;
+  }
+
+  footer {
+    position: relative;
+  }
+}
