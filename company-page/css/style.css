@@ -35,10 +35,27 @@ body {
 
 
 /*Style jumbotron*/
-
-/*limit icon space*/
+.jumbotron {
+  background-color: rgba(0,0,0,0);
+  color: white;
+}
 
 /*Style icons section using bootstrap grid system*/
+.icons {
+  background-color: rgba(0,0,0,0);
+  text-align: center;
+  color: white;
+}
+
+.icons img {
+  height: 100px;
+  width: 95px;
+}
+
+.icons p  {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
 
 /*Style contact button*/
 
@@ -55,5 +72,7 @@ footer {
 
 /*Use media queries to change icons size in small devices*/
 @media (max-width: 768px) {
-
+  footer {
+    position: relative;
+  }
 }
