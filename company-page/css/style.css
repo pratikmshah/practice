@@ -1,0 +1,50 @@
+/*Style body by adding background image and set it to cover, add font-family*/
+* {
+  font-family: Arvo, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(http://freenaturestock.s3.amazonaws.com/232.jpg) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*Style brand and links*/
+.logo {
+  width: 37px;
+  height: auto;
+}
+
+#navigation ul li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 35px;
+  font-size: 17px;
+  border-bottom: 1px solid rgb(34, 34, 34);
+}
+
+#navigation ul li:hover {
+  border-bottom: 1px solid #00FFB8;
+}
+
+/*Style navigation background*/
+.navbar-inverse{
+    background: rgba(0,0,0,0.5);
+}
+
+
+/*Style jumbotron*/
+
+/*limit icon space*/
+
+/*Style icons section using bootstrap grid system*/
+
+/*Style contact button*/
+
+/*Style footer*/
+
+/*Use media queries to change icons size in small devices*/
+@media (max-width: 768px) {
+
+}
